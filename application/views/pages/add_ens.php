@@ -30,7 +30,7 @@
 		<div>
 		<div class="form-group col-md-6">
 		<button class="btn btn-primary" type="submit">Submit</button>
-		<a class="btn btn-primary" href="<?php echo base_url(); ?>ens_controller/get_ens" role="button">aJOUTER ENSE</a>
+		
 		</div>
 		</div>
 		</div>

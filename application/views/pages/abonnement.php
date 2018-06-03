@@ -16,6 +16,17 @@
       <label for="reduction">Reduction</label>
       <input type="number" class="form-control"  placeholder="Reduction" name="reduction">
     </div>
+    <div class="form-group col-md-6 has-danger">
+      <label for="idEns">Groupe</label>
+      <?php 
+        echo '<select name="idGroupe">';
+        foreach($groupe as $row) {
+          echo '<option value= "' . $row['idGroupe'] . '"> ' . $row['nomGroupe'] . ' </option> ';
+
+        }
+      echo "</select>";
+    ;?>
+  </div>
   <button type="text" class="btn btn-primary">Envoyer</button>
 </form>
 </div>

@@ -4,28 +4,27 @@
 
 		public function create(){
 			
-			$data['title'] = 'Pour enregistrer un abonnement: ';/*ucfirst verifica daca are prima litera mare*/
-			//$this-> form_validation ->set_rules('select1', 'Nom', 'required');
-			//$this-> form_validation ->set_rules('select2', 'Prenom', 'required');
-			
+			$data['title'] = 'Pour enregistrer un abonnement: ';
+			$data['groupe'] = $this->groupe_model ->get_groupe_voir();
 			$this-> form_validation ->set_rules('type', 'Type', 'required');
 			$this-> form_validation ->set_rules('tarif', 'Tarif', 'required');
 			$this-> form_validation ->set_rules('reduction', 'Reduction', 'required');
 			$var= $this -> input ->post('idAbo');
 			
 			if($this->form_validation->run() === FALSE){
-				redirect('abonne_controller/find_abonne',$data);
+				redirect('abonnement_controller/check/'.$var,$data);
 			} else{
 				$this->abonnement_model -> create_abonnement();
 				$this->abonnement_model -> create_avoir($var);
 				//$this-> load ->view('abonne_views/create');
-				redirect('presentation');
+				redirect('tableabonne');
 			}
 		}
 
 		public function check($idAbo){
 			$data['avoir'] = $this ->abonnement_model ->check_abonnement($idAbo);
 			$var= $this ->abonnement_model ->check_abonnement($idAbo);
+			$data['groupe'] = $this->groupe_model ->get_groupe_voir();
 			//die($idAbo);
 			$data['idAbon']=$idAbo;
 			if($var){
@@ -45,11 +44,11 @@
 			$this->load->view('templates/footer');
 
 			}
-			//redirect('tableabonne');
 		}
 
 			public function edit_abonnement(){
 			//$data['title'] = 'Edit';/*ucfirst verifica daca are prima litera mare*/
+			
 			$data['abonnement'] = $this ->abonnement_model ->edit_abonnement();
 			redirect('tableabonne');
 		}

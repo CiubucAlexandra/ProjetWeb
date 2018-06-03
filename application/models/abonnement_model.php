@@ -10,7 +10,8 @@
 						'numeroAb' => null ,
 						'typeAb' => $this -> input ->post('type'),
 						'tarifAb' => $this -> input ->post('tarif'),
-						'reduction' => $this -> input ->post('reduction')
+						'reduction' => $this -> input ->post('reduction'),
+						'idGroupe'=>$this-> input ->post('idGroupe')
 					);
 					$data = $this->security->xss_clean($data);
 					$data = html_escape($data);
@@ -55,7 +56,7 @@
 				'typeAb' => $this -> input ->post('type'),
 				'tarifAb' => $this -> input ->post('tarif'),
 				'reduction' => $this -> input ->post('reduction'),
-		
+				'idGroupe'=>$this-> input ->post('idGroupe')
 			);
 			$data = $this->security->xss_clean($data);
 			$data = html_escape($data);

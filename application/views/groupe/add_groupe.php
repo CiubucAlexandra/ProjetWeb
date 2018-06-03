@@ -35,7 +35,7 @@
       <input type="text" class="form-control"  placeholder="calendrier" name="calendrier">
   </div>
  <div class="form-group col-md-6">
-      <label for="date">Oraire</label>
+      <label for="date">Date de deroulement du cours</label>
       <input type="date" class="form-control"  placeholder="date" name="date">
   </div>
     

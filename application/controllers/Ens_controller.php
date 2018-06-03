@@ -53,7 +53,7 @@
 			$groupes = $this->groupe_model->get_groupes();
 
 			foreach($groupes as $gr){
-				if($gr['idEns']=$idEns){
+				if($gr['idEns']==$idEns){
 					$result=true;
 				}
 			}

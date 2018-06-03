@@ -11,6 +11,14 @@
 				$query  = $this-> db ->get_where('groupe', array('idGroupe'=>$idGroupe));
 				return $query->row_array(); 
 		}
+		public function get_suivi($idGroupe = FALSE){
+			if($idGroupe=== FALSE){
+				$query  = $this-> db ->get('suivre');
+				return $query->result_array(); 
+			}
+				$query  = $this-> db ->get_where('suivre', array('idGroupe'=>$idGroupe));
+				return $query->row_array(); 
+		}
 		public function get_groupes($idGroupe = FALSE){
 				if($idGroupe=== FALSE){
 				$query  = $this-> db ->get('groupe');
@@ -88,8 +96,6 @@
 			return true;
 
 		}
-		public function aff_ens($idGroupe){
-
-		}
+		
 
 	}

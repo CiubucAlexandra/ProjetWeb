@@ -15,6 +15,17 @@
       <label for="reduction">Reduction</label>
       <input type="number" class="form-control"  placeholder="Reduction" name="reduction" value="<?php echo $abonnement->reduction; ?>">
     </div>
+    <div class="form-group col-md-6 has-danger">
+      <label for="idEns">Groupe</label>
+      <?php 
+        echo '<select name="idGroupe">';
+        foreach($groupe as $row) {
+          echo '<option value= "' . $row['idGroupe'] . '"> ' . $row['nomGroupe'] . ' </option> ';
+
+        }
+      echo "</select>";
+    ;?>
+  </div>
   <button type="text" class="btn btn-primary">Modifier</button>
   <a class="btn btn-primary" href="<?php echo base_url(); ?>abonnement_controller/delete/<?php echo $abonnement->numeroAb; ?>">Delete</a>
 

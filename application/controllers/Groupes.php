@@ -2,14 +2,16 @@
 	class Groupes extends CI_Controller{
 		public function voir_groupes(){
 			
-			$data['title'] = 'Notres groupes sont: ';/*ucfirst verifica daca are prima litera mare*/
+			$data['title'] = 'Notres groupes sont: ';
 			$data['groupe'] = $this ->groupe_model -> get_groupe_voir();
+			$data['enseignant'] = $this->ens_model -> get();
 			$this->load->view('templates/header');
 			$this->load->view('groupe/voir_groupes',$data);
 			$this->load->view('templates/footer');
 		}
 
 		public function add_groupe(){
+			$data['enseignant'] = $this->ens_model -> get_ens();
 			$this-> form_validation ->set_rules('nom', 'Nom', 'required');
 			$this-> form_validation ->set_rules('noPlaces', 'noPlaces', 'required');
 			$this-> form_validation ->set_rules('idEns', 'Enseignant', 'required');
@@ -19,7 +21,7 @@
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
-				$this->load->view('groupe/add_groupe');/* in view folder posts create.php*/
+				$this->load->view('groupe/add_groupe', $data);/* in view folder posts create.php*/
 				$this->load->view('templates/footer');
 			} else{
 				$this->groupe_model -> create_groupe();
@@ -27,7 +29,7 @@
 				redirect('groupes/voir_groupes');
 			}
 		}
-
+	
 		public function get_groupe($idGroupe){
 			//$data['title'] = 'Edit groupe:';
 			$data['enseignant'] = $this ->ens_model -> get_ens();
@@ -48,7 +50,5 @@
 			redirect('groupes');
 		}
 
-		public function affichage_ens($idGroupe){
-			$this->groupe_model->aff_ens($idGroupe);
-		}
+		
 	}

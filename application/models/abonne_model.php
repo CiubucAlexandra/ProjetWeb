@@ -24,7 +24,7 @@
 				'rueAbo' => $this -> input ->post('rue'),
 				'codePostaleAbo' => $this -> input ->post('code'),
 				'numTelAbo' => $this -> input ->post('numero'),
-				'ajoute' =>false
+				'ajoute' =>null
 			);
 			$data = $this->security->xss_clean($data);
 			$data = html_escape($data);

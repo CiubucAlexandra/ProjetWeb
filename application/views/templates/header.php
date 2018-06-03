@@ -11,7 +11,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href = "/">WEB</a>
+          <a class="navbar-brand" href = "/">Ecole de danse</a>
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
